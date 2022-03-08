@@ -34,7 +34,7 @@ TTwincatInterface::TTwincatInterface(char* pc_x_MachineVarName,char* pc_x_Manual
 
 	l_l_Port = AdsPortOpen();
 	pAddr = &Addr;
- 	pAddr->port = AMSPORT_R0_PLC_TC3 /* AMSPORT_R0_PLC_RTS1*/;
+ 	pAddr->port = AMSPORT_R0_PLC_TC3;	// Choose the ADS port, here 851				 /* AMSPORT_R0_PLC_RTS1*/
 
 	// Get the AMS net ID from command line
 	String^ delimStr = " ,.:\t";
