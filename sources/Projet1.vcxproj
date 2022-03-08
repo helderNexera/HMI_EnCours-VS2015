@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6E9E4C1A-1CDD-4549-9EB4-D5B915D631FA}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>Projet1</RootNamespace>
+    <ProjectName>HMI_Perlage_Standard</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\TwinCAT\ADSApi\TcAdsDll\Lib\TcAdsDll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <CLRThreadAttribute>STAThreadingAttribute</CLRThreadAttribute>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)DLLs\$(Platform)\$(Configuration)\protected\*.dll" "$(OutDir)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\TwinCAT\ADSApi\TcAdsDll\Lib\TcAdsDll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>D:\Utilisateurs\HFO\Documents\MPS\HMI\HMI_EnCours\MondemaComponents;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d  "$(SolutionDir)DLLs\$(Platform)\$(Configuration)\protected\*.dll" "$(OutDir)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AlarmScreen.cpp" />
+    <ClCompile Include="AutoSamplingScreen.cpp" />
+    <ClCompile Include="BarrelManualScreen.cpp" />
+    <ClCompile Include="DashboardScreen.cpp" />
+    <ClCompile Include="DriveComponent.cpp" />
+    <ClCompile Include="LiftManualScreen.cpp" />
+    <ClCompile Include="LoaderManualScreen.cpp" />
+    <ClCompile Include="global.cpp" />
+    <ClCompile Include="login.cpp" />
+    <ClCompile Include="LogScreen.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="RejectManualScreen.cpp" />
+    <ClCompile Include="TJobLogger.cpp" />
+    <ClCompile Include="VacuumSettingsScreen.cpp" />
+    <ClCompile Include="CounterScreen.cpp" />
+    <ClCompile Include="RejectScreen.cpp" />
+    <ClCompile Include="RTPearlingScreen.cpp" />
+    <ClCompile Include="TableManualScreen.cpp" />
+    <ClCompile Include="NewOrder.cpp" />
+    <ClCompile Include="MachineScreen.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SharpenManualScreen.cpp" />
+    <ClCompile Include="TurnOverManualScreen.cpp" />
+    <ClCompile Include="ProdScreen.cpp" />
+    <ClCompile Include="PearlingManualScreen.cpp" />
+    <ClCompile Include="TLogger.cpp" />
+    <ClCompile Include="TTwincatInterface.cpp" />
+    <ClCompile Include="TUtilities.cpp" />
+    <ClCompile Include="UserManager.cpp" />
+    <ClCompile Include="UtilitiesManualScreen.cpp" />
+    <ClCompile Include="VisionManualScreen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AlarmScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AutoSamplingScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BarrelManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DashboardScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DriveComponent.h">
+      <FileType>CppClass</FileType>
+    </ClInclude>
+    <ClInclude Include="LiftManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LoaderManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="global.h" />
+    <ClInclude Include="login.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LogScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RejectManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TJobLogger.h" />
+    <ClInclude Include="VacuumSettingsScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CounterScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RTPearlingScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RejectScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TableManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NewOrder.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MachineScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyMsgBox.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SharpenManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TextList.h" />
+    <ClInclude Include="TurnOverManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProdScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PearlingManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TLogger.h" />
+    <ClInclude Include="TTwincatInterface.h" />
+    <ClInclude Include="TUtilities.h" />
+    <ClInclude Include="UserManager.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UtilitiesManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="VisionManualScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlarmScreen.resx">
+      <DependentUpon>AlarmScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoSamplingScreen.resx">
+      <DependentUpon>AutoSamplingScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarrelManualScreen.resx">
+      <DependentUpon>BarrelManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardScreen.resx">
+      <DependentUpon>DashboardScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriveComponent.resx">
+      <DependentUpon>DriveComponent.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LiftManualScreen.resx">
+      <DependentUpon>LiftManualScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaderManualScreen.resx">
+      <DependentUpon>LoaderManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogScreen.resx">
+      <DependentUpon>LogScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineScreen.resx">
+      <DependentUpon>MachineScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VacuumSettingsScreen.resx">
+      <DependentUpon>VacuumSettingsScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CounterScreen.resx">
+      <DependentUpon>CounterScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RejectManualScreen.resx">
+      <DependentUpon>RejectManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RejectScreen.resx">
+      <DependentUpon>RejectScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RTPearlingScreen.resx">
+      <DependentUpon>RTPearlingScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableManualScreen.resx">
+      <DependentUpon>TableManualScreen.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewOrder.resx">
+      <DependentUpon>NewOrder.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <LogicalName>Projet1.MainForm.resources</LogicalName>
+      <DependentUpon>MainWindow.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyMsgBox.resx">
+      <DependentUpon>MyMsgBox.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SharpenManualScreen.resx">
+      <DependentUpon>SharpenManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurnOverManualScreen.resx">
+      <DependentUpon>TurnOverManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProdScreen.resx">
+      <DependentUpon>ProdScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PearlingManualScreen.resx">
+      <DependentUpon>PearlingManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManager.resx">
+      <DependentUpon>UserManager.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UtilitiesManualScreen.resx">
+      <DependentUpon>UtilitiesManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisionManualScreen.resx">
+      <DependentUpon>VisionManualScreen.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\images\hmi.jpg" />
+    <Image Include="hmi2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MondemaComponents\MondemaComponents.csproj">
+      <Project>{ea319b7c-d530-49ca-ab7e-544a35eabb16}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
